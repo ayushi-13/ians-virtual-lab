@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Lab</title>
+    <link rel="stylesheet" href="css.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .footer li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav {
+            background-color: black;
+            opacity: 0.8;
+            /* padding: 24px; */
+            text-align: center;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .collapse a {
+            transition: 0.3s ease;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            padding: 20px 20px;
+            margin: 0 5px;
+            font-size: 17px;
+        }
+
+        .collapse a:hover {
+            border-top: 4px solid white;
+            border-bottom: 4px solid white;
+            padding: 15px 15px;
+        }
+
+        .combo {
+            width: 300px;
+            height: 100px;
+            margin-left: 38%;
+        }
+
+        .part1 {
+            width: 200px;
+            height: 3px;
+
+
+            background-color: black;
+            position: relative;
+            animation-name: animate;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+
+        @keyframes animate {
+            0% {
+                margin-left: 0px;
+                background-color: yellow;
+            }
+
+            25% {
+                margin-left: 50px;
+                background-color: rgb(20, 252, 82);
+            }
+
+            50% {
+                margin-left: 100px;
+                background-color: rgb(55, 0, 255);
+            }
+
+            100% {
+                margin-left: 200px;
+                background-color: rgb(255, 0, 140);
+            }
+        }
+    </style>
+    <style>
+        *::-webkit-scrollbar {
+        -webkit-appearance: none;
+        }
+        *::-webkit-scrollbar:vertical {
+        width: 5px;
+        }
+        *::-webkit-scrollbar:horizontal {
+        height: 3px;
+        }
+        *::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        border: 10px solid transparent; /* should match background, can't be transparent */
+        background-color: rgba(0, 0, 0, .5);
+        }
+        *::-webkit-scrollbar-track { 
+        background-color:transparent; 
+        border-radius: 8px; 
+        } 
+        #simulation >div{
+            display: flex !important;
+            justify-content: center !important;
+        }
+        #simulation >form{
+            width: fit-content !important;
+            /* margin-left: 40% !important; */
+        }
+        #sim-container >input[type=text], select {
+          width: 10% !important;
+          padding: 12px 20px !important;
+          margin: 8px 0 !important;
+          display: inline-block !important;
+          border: 1px solid #ccc !important;
+          border-radius: 4px !important;
+          box-sizing: border-box !important;
+        }
+        
+        #sim-container >button {
+          width: 50px !important;
+          /* background-image: url(./plus.png) !important; */
+          padding: 14px 20px !important;
+          background-color: #212529 !important;
+          margin: 8px 0 !important;
+          border: none !important;
+          border-radius: 4px !important;
+          cursor: pointer !important;
+        }
+        #sim-container{
+            width:960px !important;
+        }
+        #sim-container >button:hover {
+          border-color: #45a049 !important;
+        }
+        #simulation >div>div>form>input[type=submit] {
+          width: 40% !important;
+          background-color: #4CAF50 !important;
+          color: white !important;
+          padding: 14px 20px !important;
+          margin: 8px 0 !important;
+          border: none !important;
+          border-radius: 4px !important;
+          cursor: pointer !important;
+        }
+        
+        #simulation >div>div>form>input[type=submit]:hover {
+          background-color: #45a049 !important;
+        }
+        
+        #simulation >div {
+          border-radius: 5px !important;
+          /* background-color: #f2f2f2 !important; */
+          color: gold !important;
+          padding: 20px !important;
+        }
+        </style>
+</head>
+
+<!-- <body style="background-image:linear-gradient(135deg,#fca817 50%,#FF140F 50%);"> -->
+
+<body style="background-image:url(bg-3.jpg); background-repeat: no-repeat ; background-size: cover;">
+
+    <div class="container-fluid display-flex pb-2 mb-4">
+        <nav class="navbar fixed-top display-flex navbar-expand-lg navbar-dark">
+            <div class="container-fluid ">
+
+                <a class="navbar-brand ps-3 text-primary " href="#">
+                    <img style="width:85% ; height:25%" src="svpcet.JPG" alt="">
+                    <!-- <span class="fw-bold" style="font-weight: 30px; font-size: large; margin-left: 2%; "> VIRTUAL LAB</span> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+                    <ul class="nav nav-pills nav-fill ">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="./index.html#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./index.html#procedure">Procedure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Simulation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./index.html#about">About us</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container" id="simulation">
+        <div id="simulation-row" class= "row justify-content-center bg-dark" style=" min-height: 460px;">
+            <div class="col-4">
+
+                <form action="javascript:doCalc()" >
+                    <div id="sim-container" style="width:960px !important">
+                        <label for="fname">X % </label>
+                        <input type="text" id="num0" name="num0" placeholder="Number" required>
+                        <label for="lname">=</label>
+                        <input type="text" id="rem0" name="rem0" placeholder="Remainder">
+                        <button onclick="addItem()" class="add"><img width="35" src="./plus.png"></button>
+                    </div>
+                    <br>
+                    <input style="margin: 0 4em !important;" type="submit" value="Calculate">
+                </form>
+                <div id="result">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container" >
+        <div class= "row ms-2 bg-dark" style=" height: 460px;">
+            <div class="col-md-6 text ">
+                <h3 class="text-center text-warning fs-2  mt-4 p-2">FAQ</h3>
+                <div class="accordion ps-4 pe-4" style=" height: 340px;" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                When can Chinese remainder theorem be applied?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                The Chinese remainder theorem is widely used for computing with large integers, as it
+                                allows replacing a computation for which one knows a bound on the size of the result by
+                                several similar computations on small integers.
+
+                                <a class="text-primary p-2"
+                                    href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Is CRT gives a unique solution ?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <button type="button" class="btn btn-outline-info">
+                            <a class=" text-primary p-2" href="https://brilliant.org/wiki/chinese-remainder-theorem/">Read
+                                    More</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Why is the Chinese remainder theorem used in cryptography?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Chiness reminder theorem provide benefits in computing, mathematics and also in the
+                                field of cryptography, where the algorithm provides relief in case of modular
+                                computation and also in case of making the random numbers. In CRT, it is a complex study
+                                of this theorem to develop a new terms of producing random numbers.
+                                <a class="text-primary p-2"
+                                    href="https://www.tutorialspoint.com/what-is-the-use-of-chinese-remainder-theorem-to-generate-random-numbers-for-information-security">Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 text ">
+                <form>
+                    <h2 class=" mt-4 p-2 fs-2 text-warning">Comments</h2><br>
+                    <input style="width: 490px; height:150px" class="form-control p-2" type="text" id="fname" name="comments" placeholder="Enter your comments here :"><br>
+                  
+                    <button type="button" class="btn btn-outline-success rounded-pill">Leave a comment</button>
+                  </form>
+            </div>
+
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="about" class="  container-fluid bg-dark">
+        <div class="combo">
+            <h3 class="text-light fw-bold text-center pt-4 pb-2">VIRTUAL LAB</h3>
+            <div class="part1"></div>
+        </div>
+
+        <div class="footer row p-2">
+            <div class="col-6 text-end p-4 ">
+                <p class="text-light">Project Guide : </p>
+
+                <li class="text-light"><a href="#">Prof. R. C. Roychaudhary </a></li>
+                <li class="text-light"><a href="#">Mr. Dhiraj Gupta </a></li>
+            </div>
+            <div class="col-6  p-4 border-start">
+                <p class="text-light">Team Member :</p>
+
+                <li class="text-light"><a href="#">Ayushi Ghatole - 03</a></li>
+                <li class="text-light"><a href="#">Arshal Mathew - 37</a></li>
+                <li class="text-light"><a href="#">Eshant Sonune - 45</a></li>
+            </div>
+
+
+        </div>
+        <!-- <div class="d-flex justify-content-center text-decoration-none mt-3">
+            <a class="p-2" href="#">
+                <ion-icon class="text-light" name="logo-facebook"></ion-icon>
+            </a>
+            <a class="p-2" href="#">
+                <ion-icon class="text-light" name="logo-instagram"></ion-icon>
+            </a>
+            <a class="p-2" href="#">
+                <ion-icon class="text-light" name="logo-twitter"></ion-icon>
+            </a>
+            <a class="p-2" href="#">
+                <ion-icon class="text-light" name="logo-whatsapp"></ion-icon>
+            </a>
+        </div> -->
+    </div>
+    <script type="text/javascript">
+        //common reveal options to create reveal animations
+        ScrollReveal({
+            //reset: true,
+            distance: '60px',
+            duration: 2500,
+            delay: 400
+        });
+
+        //target elements, and specify options to create reveal animations
+        ScrollReveal().reveal('.main-title', { delay: 300, origin: 'left' });
+        ScrollReveal().reveal(' .text', { delay: 400, origin: 'bottom' });
+        ScrollReveal().reveal('.image', { delay: 500, origin: 'right' });
+        //ScrollReveal().reveal('.media-icons i', { delay: 500, origin: 'bottom', interval: 200 });
+        //ScrollReveal().reveal('.sec-02 .image, .sec-03 .image', { delay: 500, origin: 'top' });
+        //ScrollReveal().reveal('.media-info li', { delay: 500, origin: 'left', interval: 200 });
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

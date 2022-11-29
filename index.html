@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Lab</title>
+    <link rel="stylesheet" href="css.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <style>
+        *::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+*::-webkit-scrollbar:vertical {
+  width: 5px;
+}
+*::-webkit-scrollbar:horizontal {
+  height: 3px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 10px solid transparent; /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, .5);
+}
+*::-webkit-scrollbar-track { 
+  background-color:transparent; 
+  border-radius: 8px; 
+} 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .footer li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav {
+            background-color: black;
+            opacity: 0.8;
+            /* padding: 24px; */
+            text-align: center;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .collapse a {
+            transition: 0.3s ease;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            padding: 20px 20px;
+            margin: 0 5px;
+            font-size: 17px;
+        }
+
+        .collapse a:hover {
+            border-top: 4px solid white;
+            border-bottom: 4px solid white;
+            padding: 15px 15px;
+        }
+
+        .combo {
+            width: 300px;
+            height: 100px;
+            margin-left: 38%;
+        }
+
+        .part1 {
+            width: 200px;
+            height: 3px;
+
+
+            background-color: black;
+            position: relative;
+            animation-name: animate;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+
+        @keyframes animate {
+            0% {
+                margin-left: 0px;
+                background-color: yellow;
+            }
+
+            25% {
+                margin-left: 50px;
+                background-color: rgb(20, 252, 82);
+            }
+
+            50% {
+                margin-left: 100px;
+                background-color: rgb(55, 0, 255);
+            }
+
+            100% {
+                margin-left: 200px;
+                background-color: rgb(255, 0, 140);
+            }
+        }
+    </style>
+</head>
+
+<!-- <body style="background-image:linear-gradient(135deg,#fca817 50%,#FF140F 50%);"> -->
+
+<body style="background-image:url(bg-3.jpg); background-repeat: no-repeat ; background-size: cover;">
+
+    <div class="container-fluid display-flex pb-2 mb-4">
+        <nav class="navbar fixed-top display-flex navbar-expand-lg navbar-dark">
+            <div class="container-fluid ">
+
+                <a class="navbar-brand ps-3 text-primary " href="#">
+                    <img style="width:85% ; height:25%" src="svpcet.JPG" alt="">
+                    <!-- <span class="fw-bold" style="font-weight: 30px; font-size: large; margin-left: 2%; "> VIRTUAL LAB</span> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+                    <ul class="nav nav-pills nav-fill ">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#procedure">Procedure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./simulation.html">Simulation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#about">About us</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="home" class="container w-100 ">
+        <div class="row ms-2 ">
+            <div class=" image pb-2" style="padding-top:1%;"><img class="shadow-lg  border border-dark"
+                    style=" margin-top: 60px;" src="crt inventor.jpg" height="400px" width="400px" alt="">
+                <div style="padding-left: 60px;">
+                    <span class=" fw-bold text-light"><br>Sun Zi (c.
+                        544 B.C.E. - c. 496 B.C.E.)
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-7 ">
+                <h2 class="text-start fw-bold main-title text-warning text-warning border text-center border-dark"
+                    style="margin-top: 10%; margin-left: 4%; ">Introduction
+                </h2>
+                <p class="p-4 text fw-bold text-light">
+
+                    The Chinese Remainder Theorem in Mathematics states that if one knows the remainders of the
+                    Euclidean division of an integer n by several integers, they can be used to determine the unique
+                    remainder of n's division by the product of these other integers, provided that the n and the
+                    divisors are pairwise coprime (no two divisors share a common factor other than 1).
+</p>
+                <h4 class=" ps-4 text fw-bold text-light">History of the Sun Zi</h4>
+                <p class="pt-4 ps-4 text fw-bold text-light">
+                    The mathematician Sun Zi created the theory in the third century AD, but it wasn't until Qin Jiushao
+                    first presented the entire theorem in 1247. An ancient Chinese author named Sun Zi penned a
+                    conventional Chinese work on military strategy. He was a pioneering realist in the field of studying
+                    international relations.
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div  class="container w-100 mt-4">
+        <div class="row">
+            <br>
+            <br>
+            <!-- <div class="content pt-4 mt-4" style="margin-top: 0%;">
+                
+                <h2 style="font-family: 'Times New Roman', serif;" class=" fw-bold text-center main-title pt-4 mt-4 text-warning">
+                    CHINESE REMAINDER THEOREM</h2> 
+            </div> -->
+
+            <div class="col-md-6 ">
+                <h2 class="fw-bold text-center border border-dark main-title p-2 text-warning ">
+                    CHINESE REMAINDER THEOREM</h2>
+                <p class="pt-1 text fw-bold text-light" style="margin-top: 10%;">The Chinese Remainder Theorem (CRT),
+                    which is a
+                    method for
+                    reducing modular computations with high moduli to comparable calculations for each of the (mutually
+                    co-prime) modulus components, was first described by the Chinese mathematician Sun Zhu.
+                    <!-- The CRT makes it possible to reduce modular calculations with large moduli to similar calculations for each of the factors of the modulus. At the end, the outcomes of the subcalculations need to be pasted together to obtain the final answer. The big advantage is immediate: almost all these calculations involve much smaller numbers. -->
+                </p>
+                <h5 class="pt-4 text fw-bold text-light">About practical</h5>
+                <p class="pt-4 text fw-bold text-light">Implementation of a program to solvea set of quadratic congruent
+                    equation
+                    with one
+                    variablebut different moduli and those are relative prime numbers. </p>
+            </div>
+
+            <!-- <p class="pt-4 text" style="margin-top:15%;">Aim : Implementation of a program to solvea set of quadratic congruent equation with one
+                    variablebut different moduli and those are relative prime numbers. </p>
+                <p class="pt-4 text">Problem Statement : Implementation of a program to solvea set of quadratic congruent
+                    equation with one
+                    variablebut different moduli and those are relative prime numbers. </p> -->
+
+            <div class=" col-md-6">
+                <img class="image" class="shadow-lg" style="border: 1px solid black; border-radius: 120px 10px ;"
+                    src="ians-5.jpg" height="400px" width="560px" alt="">
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <br>
+    <div class="container w-100 mt-1">
+        <div class="row ms-2 ">
+            <div class="col-md-5 image pt-4" style="padding-top:15%;"><img class="shadow-lg  border border-dark"
+                    style=" margin-top: 60px; border-radius: 10px 120px" src="ians-3.jpg" height="400px" width="460px"
+                    alt=""></div>
+            <div class="col-md-7 ps-4">
+                <h2 class=" fw-bold main-title text-warning border border-dark ps-3 p-2 pe-3"
+                    style="margin-top: 10%; margin-left: 5%; ">Statement of
+                    Chinese Remainder Theorem
+                </h2>
+                <p class="pt-2 ">
+
+                <pre class="p-4 ps-3 text fs-5 fw-bolder text-light">
+According to the theorem, the system of simultaneous
+congruences is defined as pairwise coprime positive 
+integers n1,n2,⋯,nk and arbitrary integers 
+a1,a2,⋯,ak.
+
+x≡a1(modn1)
+x≡a2(modn2)
+⋮
+x≡ak(modnk)
+has a solution,which is a unique modulo, 
+N = n1,n2⋯nk.
+        <!-- The CRT makes it possible to reduce modular calculations with large moduli to similar calculations for each of the factors of the modulus.
+        Let m 1, m 2, …, mn be pairwise relatively prime positive integers greater than one and a 1, a 2, …, an arbitrary integers. Then the system 
+        x ≡ a 1 ( mod m 1) 
+        x ≡ a 2 ( mod m 2)
+        ∙
+        ∙
+        ∙ 
+        x ≡ an ( mod mn)has a unique solution modulo m = m1, m2 ∙ ∙ ∙ mn. (That is, there is a solution x with 0 ≤ x < m and all other solutions are congruent modulo m to this solution. )  
+          
+        To construct a solution first let Mk=m/mk for k = 1, 2, …, n and m = m1, m2 ∙ ∙ ∙ mn.
+        Since gcd(mk , Mk ) = 1, by Theorem 1, there is an integer yk , an inverse of Mk modulo mk, such that 
+        Mk yk ≡ 1 ( mod mk ). 
+        Form the sum x = a 1 M 1 y 1 + a 2 M 2 y 2 + ∙ ∙ ∙ + an Mn yn. 
+        Note that because Mj ≡ 0 ( mod mk) whenever j ≠k , all terms except the kth term in this sum are congruent to 0 modulo mk. 
+        Because Mk yk ≡ 1 ( mod mk ), we see that x ≡ ak Mk yk ≡ ak( mod mk), for k = 1, 2, …, n. Hence, x is a simultaneous solution to the n congruences. 
+        x ≡ a 1 ( mod m 1) 
+        x ≡ a 2 ( mod m 2) 
+        ∙
+        ∙
+        ∙
+        x ≡ an ( mod mn) -->
+        </pre>
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="procedure" class="container w-100 mt-4">
+        <div class="row ms-2">
+
+            <div class="col-md-6">
+                <h2
+                    class="text-start fw-bold main-title pt-3 text-warning border text-center border-dark ps-3 p-2 pe-3">
+                    Example of Chinese Remainder Theorem
+                </h2>
+                <p>
+                <pre class="fw-bolder fs-5 text text-light p-3">
+The Chinese remainder theorem can be used to solve a system of congruences in the following way:
+x ≡ 2 ( mod 3)
+x ≡ 3 ( mod 5)
+x ≡ 2 ( mod 7).
+Let m = 3*5 *7 = 105, M 1 = m/3 = 35, M 3 = m/5 = 21, M 3 = m/7 = 15. 
+ 
+We see that  
+2 is an inverse of M1 = 35 modulo 3 since 35 ∙ 2 ≡ 2 ∙ 2 ≡ 1 (mod 3) 
+1 is an inverse of M 2 = 21 modulo 5 since 21 ≡ 1 (mod 5) 
+1 is an inverse of M 3 = 15 modulo 7 since 15 ≡ 1 (mod 7)  
+Hence, 
+x = a 1 M 1 y 1 + a 2 M 2 y 2 + a 3 M 3 y 3 = 2 ∙ 35 ∙ 2 + 3 ∙ 21 ∙ 1∙ 15 ∙ 1 = 233 ≡ 23 (mod 105)  
+We have shown that 23 is the smallest positive integer that simultaneous solution
+                    </pre>
+                </p>
+                <div class="justify-content-center">
+                        <a class="btn  btn-lg fw-bold btn-warning text" style="margin-left: 37%;" href="./simulation.html">
+                        Try
+                        Yourself -></a>
+                </div>
+                <br>
+                <br>
+            </div>
+
+            <div class="col-md-6 image" style="padding-left: 70px;"><img class="shadow-lg  border border-dark"
+                    style="background-color: white ; border-radius: 120px 10px;" src="ians-2.png" height="400px"
+                    width="480px" alt=""></div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div  class="container w-100 mt-4">
+        <div class="row ms-2">
+            <div class="col-md-6 image"><img class="shadow-lg border border-dark"
+                    style="background-color: white ; border-radius: 120px 10px;" src="ians-1.jpg" height="400px"
+                    width="480px" alt=""></div>
+            <div class="col-md-6">
+                <h2 class="text-start fw-bold main-title text-warning border border-dark text-center ps-3 p-2 pe-3">
+                    Application of the Chinese Remainder Theorem
+                </h2>
+                <p class="fw-bolder text text-light">
+                    <br>
+                    <br>
+                    > The Chinese remainder theorem is frequently used for computing with large integers because it
+                    enables replacing a computation for which one knows a bound on the size of the result by numerous
+                    comparable computations on tiny integers.
+                    <br>
+                    <br>
+                    > In order to prove Godel's Incompleteness Theorems, a Godel numbering for sequences has been
+                    developed using the Chinese Remainder Theorem.
+                    <br>
+                    <br>
+                    > The range ambiguity resolution techniques used with medium pulse repetition frequency radar can be
+                    seen as a special illustration of the Chinese remainder theorem.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container" >
+        <div class= "row ms-2 bg-dark" style=" height: 460px;">
+            <div class="col-md-6 text ">
+                <h3 class="text-center text-warning fs-2  mt-4 p-2">FAQ</h3>
+                <div class="accordion ps-4 pe-4" style=" height: 340px;" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                When can Chinese remainder theorem be applied?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                The Chinese remainder theorem is widely used for computing with large integers, as it
+                                allows replacing a computation for which one knows a bound on the size of the result by
+                                several similar computations on small integers.
+
+                                <a class="text-primary p-2"
+                                    href="https://en.wikipedia.org/wiki/Chinese_remainder_theorem">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Is CRT gives a unique solution ?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <button type="button" class="btn btn-outline-info">
+                            <a class=" text-primary p-2" href="https://brilliant.org/wiki/chinese-remainder-theorem/">Read
+                                    More</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Why is the Chinese remainder theorem used in cryptography?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Chiness reminder theorem provide benefits in computing, mathematics and also in the
+                                field of cryptography, where the algorithm provides relief in case of modular
+                                computation and also in case of making the random numbers. In CRT, it is a complex study
+                                of this theorem to develop a new terms of producing random numbers.
+                                <a class="text-primary p-2"
+                                    href="https://www.tutorialspoint.com/what-is-the-use-of-chinese-remainder-theorem-to-generate-random-numbers-for-information-security">Read
+                                    More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 text ">
+                <form>
+                    <h2 class=" mt-4 p-2 fs-2 text-warning">Comments</h2><br>
+                    <input style="width: 490px; height:150px" class="form-control p-2" type="text" id="fname" name="comments" placeholder="Enter your comments here :"><br>
+                  
+                    <button type="button" class="btn btn-outline-success rounded-pill">Leave a comment</button>
+                  </form>
+            </div>
+
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="about" class="  container-fluid bg-dark">
+        <div class="combo">
+            <h3 class="text-light fw-bold text-center pt-4 pb-2">VIRTUAL LAB</h3>
+            <div class="part1"></div>
+        </div>
+
+        <div class="footer row p-2">
+            <div class="col-6 text-end p-4 ">
+                <p class="text-light">Project Guide : </p>
+
+                <li class="text-light"><a href="#">Prof. R. C. Roychaudhary </a></li>
+                <li class="text-light"><a href="#">Mr. Dhiraj Gupta </a></li>
+            </div>
+            <div class="col-6  p-4 border-start">
+                <p class="text-light">Team Member :</p>
+
+                <li class="text-light"><a href="#">Ayushi Ghatole - 03</a></li>
+                <li class="text-light"><a href="#">Arshal Mathew - 37</a></li>
+                <li class="text-light"><a href="#">Eshant Sonune - 45</a></li>
+            </div>
+
+
+        </div>
+        <!-- <div class="d-flex justify-content-center text-decoration-none mt-3">
+            <a class="p-2" href="#">
+                <ion-icon class="text-light" name="logo-facebook"></ion-icon>
+            </a>
+            <a class="p-2" href="#">
+                <ion-icon class="text-light" name="logo-instagram"></ion-icon>
+            </a>
+            <a class="p-2" href="#">
+                <ion-icon class="text-light" name="logo-twitter"></ion-icon>
+            </a>
+            <a class="p-2" href="#">
+                <ion-icon class="text-light" name="logo-whatsapp"></ion-icon>
+            </a>
+        </div> -->
+    </div>
+    <script type="text/javascript">
+        //common reveal options to create reveal animations
+        ScrollReveal({
+            //reset: true,
+            distance: '60px',
+            duration: 2500,
+            delay: 400
+        });
+
+        //target elements, and specify options to create reveal animations
+        ScrollReveal().reveal('.main-title', { delay: 300, origin: 'left' });
+        ScrollReveal().reveal(' .text', { delay: 400, origin: 'bottom' });
+        ScrollReveal().reveal('.image', { delay: 500, origin: 'right' });
+        //ScrollReveal().reveal('.media-icons i', { delay: 500, origin: 'bottom', interval: 200 });
+        //ScrollReveal().reveal('.sec-02 .image, .sec-03 .image', { delay: 500, origin: 'top' });
+        //ScrollReveal().reveal('.media-info li', { delay: 500, origin: 'left', interval: 200 });
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
